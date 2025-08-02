@@ -1,2 +1,1 @@
-# bioai-installer
-Installer of bioai services.
+# bioai-seq
