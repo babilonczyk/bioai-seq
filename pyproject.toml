@@ -22,8 +22,11 @@ classifiers = [
 
 dependencies = [
     "typer>=0.9.0",
-    "rich"
+    "rich",
 ]
+
+[project.optional-dependencies]
+esm = ["fair-esm"]
 
 [project.scripts]
 bioseq = "bioai_seq.cli:main"

@@ -1,6 +1,8 @@
 # bioai-seq
 
-`bioai-seq` is a lightweight command-line tool for basic biological sequence analysis. It’s part of my journey toward becoming a **Bio AI Software Engineer** - combining software engineering, biology, and machine learning.
+`bioai-seq` is a lightweight command-line tool for basic biological sequence analysis. It’s part of my journey toward becoming a **Bio AI Software Engineer** - combining software engineering, biology, and AI.
+
+It's designed to provide information about
 
 ---
 
@@ -48,33 +50,45 @@ twine upload dist/*
 
 ---
 
-## Installation (User Guide)
-
-```bash
-pip install bioai-seq
-```
-
-Then run:
-
-```bash
-bioseq
-```
-
----
-
 ## 🧪 Planned Example Output
 
 ```txt
 ✅ Sequence loaded: 1273 amino acids
-🧬 Detected: SARS-CoV-2 spike protein (likely variant: Omicron)
+🧬 Detected: SARS-CoV-2 spike glycoprotein (likely variant: Omicron)
+
 🔍 Running ESM-2 embeddings...
-🧪 Predicted secondary structure: 40% alpha-helix, 25% beta-sheet
-🧬 Mutation sites detected vs reference: 15
-📚 Similar sequences:
- - UniProt P0DTC2 (99.7%)
- - UniProt A0A6H2L9T9 (98.9%)
+📦 Comparing against 1000 proteins in vector database...
+📚 Top similar sequences:
+ - UniProt P0DTC2 (99.8%) — SARS-CoV-2 spike glycoprotein
+ - UniProt A0A6H2L9T9 (98.9%) — Bat coronavirus spike protein
+ - UniProt A0A2X1VPJ6 (97.5%) — Pangolin coronavirus S protein
+
+------------------------------------------------------------
+
+🔬 Matched Protein Metadata: P0DTC2
+🌍 Organism: SARS-CoV-2
+🧬 Gene names: S, spike
+🧫 Host organisms: Human, Bat
+📖 Description: Spike glycoprotein mediates viral entry via ACE2
+🏷️ Keywords: Receptor-binding, Glycoprotein, Fusion protein
+🔎 Protein evidence: Evidence at protein level
+
+🧩 Features:
+ - Signal peptide: 1–13
+ - Transmembrane region: 1213–1237
+ - RBD domain: 319–541
+
+🔗 External references:
+ - [PDB: 6VSB](https://www.rcsb.org/structure/6VSB)
+ - [RefSeq: YP_009724390.1](https://www.ncbi.nlm.nih.gov/protein/YP_009724390.1)
+ - [Pfam: PF01601](https://www.ebi.ac.uk/interpro/entry/pfam/PF01601)
+ - [AlphaFold model](https://alphafold.ebi.ac.uk/entry/P0DTC2)
+ - [UniProt entry](https://www.uniprot.org/uniprotkb/P0DTC2)
+
+------------------------------------------------------------
+
 🧠 Summary:
-"This sequence appears to be a mutated spike protein, likely from a recent SARS-CoV-2 variant. Multiple substitutions are present in the RBD region."
+"This sequence matches the SARS-CoV-2 spike glycoprotein. It binds to the ACE2 receptor to mediate viral entry. The receptor binding domain (RBD) spans residues 319–541 and contains key mutations in Omicron variants. The protein is expressed in humans and bats."
 ```
 
 ---
