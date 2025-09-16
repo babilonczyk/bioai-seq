@@ -4,8 +4,6 @@
 
 It's designed to provide information about
 
----
-
 ## How to install
 
 ### 1. Create and activate a virtual environment
@@ -21,34 +19,6 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install --upgrade bioai-seq
 bioseq
 ```
-
----
-
-## Deploying to PyPI (Production)
-
-### 1. Clean previous builds
-
-```bash
-rm -rf dist build *.egg-info
-```
-
-### 2. Build the package
-
-```bash
-python3 -m build
-```
-
-### 3. Upload to PyPI
-
-```bash
-pip install --upgrade twine
-twine upload dist/*
-```
-
-- Username: `__token__`
-- Password: your API token from [https://pypi.org/manage/account/token/](https://pypi.org/manage/account/token/)
-
----
 
 ## Flow Chart
 
@@ -107,6 +77,32 @@ flowchart TD
 🧠 Summary:
 "This sequence matches the SARS-CoV-2 spike glycoprotein. It binds to the ACE2 receptor to mediate viral entry. The receptor binding domain (RBD) spans residues 319–541 and contains key mutations in Omicron variants. The protein is expressed in humans and bats."
 ```
+
+---
+
+## Deploying to PyPI (Production)
+
+### 1. Clean previous builds
+
+```bash
+rm -rf dist build *.egg-info
+```
+
+### 2. Build the package
+
+```bash
+python3 -m build
+```
+
+### 3. Upload to PyPI
+
+```bash
+pip install --upgrade twine
+twine upload dist/*
+```
+
+- Username: `__token__`
+- Password: your API token from [https://pypi.org/manage/account/token/](https://pypi.org/manage/account/token/)
 
 ---
 
