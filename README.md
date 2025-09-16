@@ -50,6 +50,23 @@ twine upload dist/*
 
 ---
 
+## Flow Chart
+
+```mermaid
+flowchart TD
+  subgraph CLI[CLI Tool]
+    A[User Command: analyze] --> B{Check local resources}
+    B -->|Missing| C[Download Embedding Chroma DB & Local LLM]
+    B -->|Available| D[Proceed]
+    C --> D
+    D --> E[ESM-1b API: Create Embedding]
+    E --> F[Metadata API: Search Metadata]
+    F --> G[Chroma DB: Store & Compare Embeddings]
+    G --> H[Local LLM: Generate Summary]
+    H --> I[Display Results to User]
+  end
+```
+
 ## 🧪 Planned Example Output
 
 ```txt

@@ -1,8 +1,8 @@
 import typer
-from core import db
 import core.commands.analyze as analyze_command
-from pathlib import Path
 
+from core import db
+from pathlib import Path
 from bioai_seq.core.services.remote.get_embedding import get_embedding
 
 app = typer.Typer()
@@ -10,6 +10,8 @@ app = typer.Typer()
 DB_FOLDER = Path.home() / ".bioai_seq" / "db"
 CHROMA_DIR = DB_FOLDER / "chroma"
 
+# -------------------------------------------------------------------------------------------
+# Callbacks
 
 @app.callback()
 def setup():
@@ -27,9 +29,11 @@ def show_help(ctx: typer.Context):
         typer.echo(ctx.get_help())
         raise typer.Exit()
 
+# -------------------------------------------------------------------------------------------
+# Commands
 
 @app.command()
-@app.command("a")   # alias
+@app.command("a")
 def analyze(input: str):
     """Analyze a FASTA file or a sequence."""
     analyze_command.analyze(input)
@@ -39,7 +43,8 @@ def analyze(input: str):
 def e(input: str):
     get_embedding(input)
 
-
+# -------------------------------------------------------------------------------------------
+# Main
 
 if __name__ == "__main__":
     app(prog_name="cli.py")
