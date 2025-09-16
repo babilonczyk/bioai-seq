@@ -11,9 +11,13 @@ DB_FOLDER = Path.home() / ".bioai_seq" / "db"
 DB_FILE = DB_FOLDER / "swissprot_esm1b.h5"
 CHROMA_DIR = DB_FOLDER / "chroma"
 
+# ------------------------------------------------------------------------------------------- 
+
 
 def is_db_installed():
     return DB_FILE.exists()
+
+# -------------------------------------------------------------------------------------------
 
 
 def prompt_and_download():
@@ -38,6 +42,9 @@ def prompt_and_download():
         raise typer.Exit(code=1)
     
 
+# -------------------------------------------------------------------------------------------
+
+
 def is_db_populated():
     """Check if the Chroma DB is already populated."""
     client = chromadb.PersistentClient(path=str(CHROMA_DIR))
@@ -45,6 +52,9 @@ def is_db_populated():
     count = collection.count()
     typer.echo(f"🔍 Database contains {count} entries.")
     return count > 0
+
+
+# -------------------------------------------------------------------------------------------
 
 
 def populate_db():

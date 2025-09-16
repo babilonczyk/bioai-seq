@@ -3,6 +3,8 @@ from core import db
 import core.commands.analyze as analyze_command
 from pathlib import Path
 
+from bioai_seq.core.services.remote.get_embedding import get_embedding
+
 app = typer.Typer()
 
 DB_FOLDER = Path.home() / ".bioai_seq" / "db"
@@ -11,19 +13,33 @@ CHROMA_DIR = DB_FOLDER / "chroma"
 
 @app.callback()
 def setup():
-    """Setup the bioai-seq environment."""
-    typer.echo("🔧 Setting up bioai-seq environment...")
+    """Setup the bioai-seq environment (runs before every command)."""
     if not db.is_db_installed():
         db.prompt_and_download()
     if db.is_db_installed() and not db.is_db_populated():
         db.populate_db()
 
 
+@app.callback(invoke_without_command=True)
+def show_help(ctx: typer.Context):
+    """Learn more about available commands."""
+    if ctx.invoked_subcommand is None:
+        typer.echo(ctx.get_help())
+        raise typer.Exit()
+
+
 @app.command()
+@app.command("a")   # alias
 def analyze(input: str):
     """Analyze a FASTA file or a sequence."""
     analyze_command.analyze(input)
 
- 
+
+@app.command()
+def e(input: str):
+    get_embedding(input)
+
+
+
 if __name__ == "__main__":
-    app()
+    app(prog_name="cli.py")
