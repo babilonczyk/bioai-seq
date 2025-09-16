@@ -1,8 +1,8 @@
 import typer
-import core.commands.analyze as analyze_command
-
-from core import db
 from pathlib import Path
+
+from bioai_seq.core import db
+from bioai_seq.core.commands import analyze as analyze_command
 from bioai_seq.core.services.remote.get_embedding import get_embedding
 
 app = typer.Typer()
@@ -37,11 +37,6 @@ def show_help(ctx: typer.Context):
 def analyze(input: str):
     """Analyze a FASTA file or a sequence."""
     analyze_command.analyze(input)
-
-
-@app.command()
-def e(input: str):
-    get_embedding(input)
 
 # -------------------------------------------------------------------------------------------
 # Main

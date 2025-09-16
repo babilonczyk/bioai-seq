@@ -1,5 +1,7 @@
 import typer
 
+from bioai_seq.core.services.remote.get_embedding import get_embedding
+
 HF_API_BASE = "https://babilonczyk-facebook-esm1b-t33-650m-ur50s.hf.space/gradio_api/call/predict"
 
 
@@ -33,7 +35,8 @@ def analyze_sequence(sequence: str):
     styled_sequence = typer.style(f" {sequence} ", fg=typer.colors.WHITE, bg=typer.colors.MAGENTA)
     typer.echo(f"🧬 Analyzing sequence: {styled_sequence}")
 
-    # Here you would add the logic to analyze the sequence
-    # For now, we just print it
-    # typer.echo(f"🧬 Sequence length: {len(sequence)}")
-    # typer.echo(f"🧬 Sequence content: {sequence}")
+    embedding = get_embedding(sequence)
+    if embedding:
+        typer.echo(f"✅ Retrieved embedding of length {len(embedding)}")
+    else:
+        typer.echo("❌ Failed to retrieve embedding")

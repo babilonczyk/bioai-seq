@@ -1,6 +1,6 @@
 [project]
 name = "bioai-seq"
-version = "0.0.3"
+version = "0.0.4"
 description = "Privacy-first command-line tool for biotech devs and researchers to analyse sequence data."
 readme = "README.md"
 requires-python = ">=3.8"
@@ -29,8 +29,12 @@ dependencies = [
 esm = ["fair-esm"]
 
 [project.scripts]
-bioseq = "bioai_seq.cli:main"
+bioseq = "bioai_seq.cli:app"
 
 [build-system]
 requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["bioai_seq*"]
