@@ -1,8 +1,30 @@
 # bioai-seq
 
-`bioai-seq` is a lightweight command-line tool for basic biological sequence analysis. It’s part of my journey toward becoming a **Bio AI Software Engineer** - combining software engineering, biology, and AI.
+`bioai-seq` is a lightweight, developer-friendly command-line tool for **basic biological sequence analysis**.  
+It’s part of my journey toward becoming a **Bio AI Software Engineer** — combining software engineering, biology, and artificial intelligence into practical, accessible tools.
 
-It's designed to provide information about
+With `bioai-seq`, you can:
+
+- Run simple analyses on protein or nucleotide sequences from the command line.
+- Automatically generate embeddings using **ESM-1b**.
+- Compare sequences against a **local Chroma vector database**.
+- Retrieve biological metadata from public sources.
+- Summarize results using a **local LLM model** for human-readable insights.
+
+## Who is it for?
+
+- **Students & learners** in bioinformatics who want a gentle entry point into sequence analysis without setting up heavy pipelines.
+- **Software engineers** curious about biology, wanting to bridge coding and life sciences.
+- **AI & ML enthusiasts** exploring how embeddings, vector search, and LLMs can be applied to biological problems.
+- **Researchers** who need a lightweight side tool for quick sequence checks.
+
+## How it helps
+
+- 🔎 **Fast exploration** - check what a sequence might be and what it’s related to in seconds.
+- 🧠 **Contextual insights** — every result comes with a human-readable LLM summary.
+- 📦 **Local-first design** — downloads embeddings DB + LLM once, then works offline.
+- 🧩 **Educational bridge** — shows how **AI techniques (embeddings, vector DBs, LLMs)** can be directly applied to **biology**.
+- 🌍 **Open & extensible** — MIT/Apache-licensed, free to adapt for your own research or learning.
 
 ## How to install
 
